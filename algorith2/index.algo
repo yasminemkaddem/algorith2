@@ -1,0 +1,77 @@
+ALGORITHM Element 
+VAR
+    tab1, tab2: ARRAY_OF INTEGER;
+    i, j,: INTEGER; 
+    sum: INTEGER :=0 ;
+    found : BOOLEAN ;
+
+
+BEGIN
+    FOR i FROM 0 TO tab1.length-1 DO
+        found := FALSE;
+        FOR j FROM 0 TO tab2.length-1 DO
+            IF(tab1[i] = tab2[j]) THEN
+                found := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF ( found = FALSE) THEN
+            sum := sum + tab1[i];
+        END_IF
+    END_FOR 
+    FOR i FROM 0 TO tab2.length-1 DO
+        found := FALSE;
+        FOR j FROM 0 TO tab1.length-1 DO
+            IF(tab2[i] = tab1[j]) THEN
+                found := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (found =FALSE) THEN
+            sum := sum + tab2[i];
+        END_IF
+    END_FOR
+
+    Write(sum);
+END
+
+
+ sol2:
+ALGORITHM Element 
+VAR
+    tab1, tab2: ARRAY_OF INTEGER;
+    i, j,: INTEGER; 
+    sum: INTEGER :=0 ;
+    found : BOOLEAN ;
+
+BEGIN
+    FOR i FROM 0 TO ((tab1.length)-1) DO
+        found := FALSE;
+       WHILE (found= FALSE) & (j<= (tab2.length)-1) DO
+        IF tab1[i] =tab2[j]
+           found := TRUE
+         BREAK ; 
+        ELSE
+          j:= j+1 
+       END
+      UNTIL (j=(tab2.length) -1)
+     sum := sum +tab1[i] ; 
+   End_FOR
+
+ FOR i FROM 0 TO ((tab2.length)-1) DO
+        found := FALSE;
+  while (found= FALSE) & (j<= (tab1.length)-1) do 
+     if tab2[i] =tab2[j]
+       found := TRUE
+     BREAK ; 
+     ELSE 
+       i:= i+1 
+    END
+
+  UNTIL (j=(tab1.lengt) -1)
+
+  sum := sum +tab2[i] ; 
+End_FOR
+
+    Write(sum);
+END ;
